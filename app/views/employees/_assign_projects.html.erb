@@ -1,0 +1,6 @@
++  def create_student
++    employee = Employee.find_by_id(params[:project][:employees_projects])
++    employees_project = EmployeesProject.where(employee_id: params[:project][:employees_projects], project_id: @project.id).first
++    if employee.present? && employees_project.nil?
++      EmployeesProject.create(employee_id: employee.id, project_id: @project.id)
++    end

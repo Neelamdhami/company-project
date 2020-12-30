@@ -12,6 +12,7 @@
     <% @projects.each do |project| %>
       <tr style="background-color:#32A9EE;color:white;">
         <td><%= project.project_name %></td>
+      
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>

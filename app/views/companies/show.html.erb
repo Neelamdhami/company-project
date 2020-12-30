@@ -13,6 +13,9 @@
 				<td>
 					<%= employee.employee_name %>
 				</td>
+				 <td><%= link_to '| Show |', employee %>
+        <%= link_to '| Edit', edit_employee_path(employee) %>
+        <%= link_to '| Destroy |', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			</tr>
 			<%end%>
 		</tbody>

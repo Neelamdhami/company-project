@@ -10,8 +10,7 @@ class EmployeesController < ApplicationController
   # GET /employees/1
   # GET /employees/1.json
   def show
-    
-    
+    @employee_projects = @employee.employees_projects
   end
 
   # GET /employees/new
@@ -37,6 +36,11 @@ class EmployeesController < ApplicationController
         format.json { render json: @employee.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def assign_projects
+    @employee_projects = EmployeesProject.create(project_id: params[:project_id], employee_id: params[:employee_id])
+    redirect_to employee_path(params[:employee_id])
   end
 
   # PATCH/PUT /employees/1

@@ -8,7 +8,9 @@
 
 <table class="table" style="width:65%;height:90%;" align="center">
 <tr>
-  <th>Company</th>
+  <th>Employee</th>
+  <th>Role</th>
+  <th>Project Count</th>
   <th>Actions</th>
 </tr>
   
@@ -16,7 +18,9 @@
     <% @employees.each do |employee| %>
       <tr style="background-color:#32A9EE;color:white;">
         <td><%= employee.employee_name %></td>
-    
+
+        <td><%= employee.role.try(:role_name) %>
+        <td><%= employee.employees_projects.count %></td>
         <td><%= link_to '| Show |', employee %>
         <%= link_to '| Edit', edit_employee_path(employee) %>
         <%= link_to '| Destroy |', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>

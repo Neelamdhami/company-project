@@ -1,4 +1,4 @@
 class Project < ApplicationRecord
-	has_many :employees
-	
+	has_many :employees_projects
+	has_many :employees, through: :employees_projects
 end

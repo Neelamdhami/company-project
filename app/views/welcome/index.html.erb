@@ -1,0 +1,63 @@
+<html>
+<style>
+*{
+padding: 0;
+margin: 0;
+}
+body
+{
+	background-image: url(https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=472642856008b6ddb3e596e45ca4263d&auto=format&fit=crop&w=1494&q=80);   
+    background-size:1500px 800px;
+	background-size: cover;
+	background-position: center;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+.menu-bar{
+	background: yellow;
+	text-align: center;
+}
+.menu-bar ul{
+	display: inline-flex;
+	list-style: none;
+	color: #fff;
+}
+
+.menu-bar ul li{
+
+	width: 200px;
+	margin: 5px;
+	padding: 10px;
+text-decoration: none;
+	color: #fff;
+	
+}
+.active, .menu-bar ul li:hover
+{
+
+	background: blue;
+	border-radius: 3px;
+}
+h1{
+
+	color:red;
+	margin: 15px;
+}
+
+</style>
+
+<body>
+	<div class="menu-bar">
+	<ul>
+		<li class="active">Home</li>
+		<li><%= link_to 'Company', new_company_path %></li>
+		<li><%= link_to 'Employee', new_employee_path %></li>
+		<li><%= link_to 'Project', new_project_path %></li>
+	</ul>
+</body>
+</div>
+<div>
+	<h1 align="center">WELCOME</h1>
+	</div>
+
+</html>
