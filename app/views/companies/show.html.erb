@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<div align="center">
+	<%= @company.company_name %><br/>
+	<table class="table">
+		<tr>
+			<th>
+				Employee Name
+			</th>
+		</tr>
+		<tbody>
+			<% @company_employees.each do |employee| %>
+			<tr>
+				<td>
+					<%= employee.employee_name %>
+				</td>
+			</tr>
+			<%end%>
+		</tbody>
+	</table>
+<button><%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %></button>
+</div>
