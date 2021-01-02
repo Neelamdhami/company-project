@@ -2,7 +2,6 @@
   <% if role.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(role.errors.count, "error") %> prohibited this role from being saved:</h2>
-
       <ul>
       <% role.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -20,8 +19,6 @@
     <td><%= form.label :employee_name %></td>
     <td><%= form.collection_select :employee_id, Employee.order(:employee_name),:id,:employee_name, include_blank: true %></td>
   </tr>
-
-
   <div class="actions">
     <td colspan="2"><button><%= form.submit %></button></td>
   </div>

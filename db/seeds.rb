@@ -9,3 +9,4 @@ puts 'Creating Companies'
 10.times do |com|
 	@company = Company.create(company_name: Faker::Company.name)
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
