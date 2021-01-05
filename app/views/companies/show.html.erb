@@ -1,25 +1,23 @@
 <p id="notice"><%= notice %></p>
 <div align="center">
 	<%= @company.company_name %><br/>
+	<%= image_tag (@company.image_url), :size => "260x180" %>
 	<table class="table">
 		<tr>
-			<th>
-				Employee Name
-			</th>
+			<th>Employee Name</th>
 		</tr>
 		<tbody>
 			<% @company_employees.each do |employee| %>
-			<tr>
-				<td>
-					<%= employee.employee_name %>
-				</td>
-				 <td><%= link_to '| Show |', employee %>
-        <%= link_to '| Edit', edit_employee_path(employee) %>
-        <%= link_to '| Destroy |', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-			</tr>
+				<tr>
+					<td><%= employee.employee_name %></td>
+					<td><%= link_to '| Show |', employee %>
+			      <%= link_to '| Edit', edit_employee_path(employee) %>
+			      <%= link_to '| Destroy |', employee, method: :delete, data: { confirm: 'Are you sure?' } %>
+			    </td>
+				</tr>
 			<%end%>
 		</tbody>
 	</table>
-<button><%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %></button>
+	<button><%= link_to 'Edit', edit_company_path(@company) %> |
+	<%= link_to 'Back', companies_path %></button>
 </div>

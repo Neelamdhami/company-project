@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<h1>Blogs</h1>
+<table class="table" style="width:65%;height:90%;" align="center">
+  <thead>
+    <tr class="bdrfirst">
+      <th>Title</th>
+      <th>Descripion</th>
+      <th>Image</th>
+      <!-- <th>User</th> -->
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr style="background-color:#32A9EE;color:white;">
+        <td><%= blog.title %></td>
+        <td><%= blog.descripion %></td>
+        <td><img src="<%= blog.image.url %>" class='img-ur'></td>
+        <!-- <td><%#= blog.user_id %></td> -->
+        <td>
+          <%= link_to '|Show|', blog %></br>
+          <% if current_user.id == blog.user_id %>
+            <%= link_to '|Edit|', edit_blog_path(blog) %></br>
+            <%= link_to '|Destroy|', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%end%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Blog', new_blog_path %>

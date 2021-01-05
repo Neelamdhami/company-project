@@ -1,12 +1,11 @@
 <%= form_with(model: employee, local: true) do |form| %>
   <% if employee.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
-
+    <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
       <ul>
-      <% employee.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% employee.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -15,15 +14,18 @@
       <td><%= form.label :employee_name %></td>
       <td><%= form.text_field :employee_name %></td>
     </tr>
-        <br>
+    <br>
     <tr style="background-color:#32A9EE;color:white;">
       <td><%= form.label :company_name %></td>
       <td><%= form.collection_select :company_id, Company.order(:company_name),:id,:company_name, include_blank: true %></td>
     </tr>
-  
-  <div class="actions">
-   <td colspan="2"><button><%= form.submit %></button></td>
-  </div>
+    <tr>
+      <td><%= form.label :image %></td>
+      <td><%= form.file_field :image%></td>
+      <tr>
+    <div class="actions">
+      <td colspan="2"><button><%= form.submit %></button></td>
+    </div>
   </table>
 <% end %>
 

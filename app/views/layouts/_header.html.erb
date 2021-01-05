@@ -1,0 +1,23 @@
+<body>
+<div class="menu-bar">
+	<ul>
+		<li class="active"><a href="/">Home</a></li>
+		<li><%= link_to 'Company', companies_path %></li>
+		<li><%= link_to 'Employee', employees_path %></li>
+		<li><%= link_to 'Project', projects_path %></li>
+		<li><%= link_to 'Blog' , blogs_path %></li>
+		<li>
+			<% if user_signed_in? %>
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+    	<% else %>
+        <%= link_to 'Sign in', new_user_session_path %>
+    	<% end %>
+    </li>
+		<h6>
+			<% if user_signed_in? %>
+        Signed in as <%= current_user.email %>
+    	<% end %>
+    </h6>
+	</ul>
+</div>
+</body>

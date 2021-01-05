@@ -2,28 +2,24 @@
   <% if project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
       <ul>
-      <% project.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% project.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
   <table style="width:65%;height:90%;" align="center">
     <tr style="background-color:#32A9EE;color:white;">
-  <td><%= form.label :project_name %></td>
-  <td><%= form.text_field :project_name %></td>
-</tr>
-
-
-  <tr style="background-color:#32A9EE;color:white;">
-    <td><%= form.label :employee_name %></td>
-    <td><%= form.collection_select :employee_id, Employee.order(:employee_name),:id,:employee_name, include_blank: true %></td>
-  </tr>
-
-  <div class="actions">
-   <td colspan="2"><button> <%= form.submit %></button></td>
-  </div>
-</table>
+      <td><%= form.label :project_name %></td>
+      <td><%= form.text_field :project_name %></td>
+    </tr>
+    <tr style="background-color:#32A9EE;color:white;">
+      <td><%= form.label :employee_name %></td>
+      <td><%= form.collection_select :employee_id, Employee.order(:employee_name),:id,:employee_name, include_blank: true %></td>
+    </tr>
+    <div class="actions">
+      <td colspan="2"><button> <%= form.submit %></button></td>
+    </div>
+  </table>
 <% end %>

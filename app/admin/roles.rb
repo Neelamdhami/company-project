@@ -5,7 +5,7 @@ ActiveAdmin.register Role do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :role_name, :employee_id
+  permit_params :role_name, :employee_id
   #
   # or
   #

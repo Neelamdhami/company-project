@@ -1,27 +1,29 @@
 <%= form_with(model: company, local: true) do |form| %>
   <% if company.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
-
-      <ul>
-      <% company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2><ul>
+        <% company.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
   <table style="width:65%;height:90%;" align="center">
     <tr style="background-color:#32A9EE;color:white;">
-  <td><%= form.label :company_name %></td>
-    <td><%= form.text_field :company_name %></td>
-  </tr>
-<br>
-  <tr>
-    <div class="center">
-    <td colspan="2"><button><%= form.submit %></button></td>
-  </div>
-</tr>
-</table>
+      <td><%= form.label :company_name %></td>
+      <td><%= form.text_field :company_name %></td>
+    </tr>
+    <tr>
+      <td><%= form.label :image %></td>
+      <td><%= form.file_field :image%></td>
+      <tr>
+    <br>
+    <tr>
+      <div class="center">
+        <td colspan="2"><button><%= form.submit %></button></td>
+      </div>
+    </tr>
+  </table>
 <% end %>
 
 

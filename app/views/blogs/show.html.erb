@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<table class="table">
+	<p>
+	  <strong>Title:</strong>
+	  <%= @blog.title %>
+	</p>
+	<p>
+	  <strong>Descripion:</strong>
+	  <%= @blog.descripion %>
+	</p>
+	<p>
+		<strong>image:</strong>
+		<%= image_tag (@blog.image_url), :size => "260x180" %>
+	</p>
+	<p>
+	  <strong></strong>
+	  <%= @blog.user_id %>
+	</p>
+</table>
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>

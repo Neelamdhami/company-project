@@ -6,8 +6,5 @@ class Employee < ApplicationRecord
 	validates_presence_of :company
 	validates :employee_name, presence: true
 	validates_length_of :employee_name, minimum: 3, maximum: 15, allow_blank: true
-
-	# has_many :projects
-	
+	mount_uploader :image, ImageUploader
 end
-Employee.create(employee_name: nil).valid? # => false
