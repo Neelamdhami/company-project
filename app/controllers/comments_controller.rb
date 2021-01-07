@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 	before_action :find_commentable
-	def new
+    def new
       @comment = Comment.new
     end
 
@@ -16,6 +16,13 @@ class CommentsController < ApplicationController
       	redirect_back(fallback_location: root_path)
         #redirect_to :back, notice: "Your comment wasn't posted!"
       end
+    end
+
+    def destroy
+      @blog = Blog.find(params[:blog_id])
+      @comment = @blog.comments.find(params[:id])
+      @comment.destroy
+      redirect_back(fallback_location: root_path)
     end
 
     private

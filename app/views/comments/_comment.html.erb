@@ -1,15 +1,22 @@
+<div class="card">
+  <div class="card-body">
 <li>
   <%= comment.body %> -
   <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small>
-
-  <%= form_for [comment, Comment.new] do |f| %>
-      <%= f.text_field :body, placeholder: "Add a Reply" %><br/>
-      <%= f.hidden_field :user_id %>
-      <%= f.submit "Reply"  %>
+    <%= form_for [comment, Comment.new] do |f| %>
+      <%= f.hidden_field :user_id, value:"#{current_user.id}" %>
+      <%= f.text_field :body, placeholder: "Add a Reply" %>
+      <%= f.submit "Reply"  %></br>
+      <%= link_to 'Delete',  blog_comment_path(@blog, comment),   method: :delete, data: { confirm: 'Are you sure?' } %>
+      
       <% end %>
+
 
   <ul>
       <%= render partial: 'comments/comment', collection: comment.comments %>
   </ul>
 
 </li>
+
+  </div>
+</div>

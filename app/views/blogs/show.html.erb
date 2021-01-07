@@ -23,8 +23,9 @@
 
 <%= form_for [@blog, Comment.new] do |f| %>
 <%= f.text_area :body, placeholder: "Add a comment" %><br/>
-<%= f.hidden_field :user_id%>
+<td><%= f.hidden_field :user_id, value:"#{current_user.id}" %></td>
 <%= f.submit "Add Comment" %>
+
 <% end %>
 
 <ul>
