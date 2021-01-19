@@ -7,7 +7,7 @@
       <%= f.hidden_field :user_id, value:"#{current_user.id}" %>
       <%= f.text_field :body, placeholder: "Add a Reply" %>
       <%= f.submit "Reply"  %></br>
-      <%= link_to 'Delete',  blog_comment_path(@blog, comment),   method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Delete',  blog_comment_path(@blog, comment_id: comment.id),   method: :delete, data: { confirm: 'Are you sure?' } %>
       
       <% end %>
 

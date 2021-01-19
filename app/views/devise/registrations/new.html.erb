@@ -25,6 +25,27 @@
             <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
           </tr>
         </div>
+        <tr>
+          <td><%= f.label :employee_name %></td>
+          <td><%= f.text_field :employee_name %></td>
+        </tr>
+        <br>
+        <tr>
+          <td><%= f.label :company_name %></td>
+          <td><%= f.collection_select :company_id, Company.order(:company_name),:id,:company_name, include_blank: true %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :image %></td>
+          <td><%= f.file_field :image%></td>
+          <tr>
+        <tr>
+          <td><%= f.label :dob %></td>
+          <td><%= f.date_field :dob%></td>
+        </tr>
+        <tr>
+          <td><%= f.label :gender %></td>
+          <td><%= f.select(:gender, [ 'Male', 'Female', 'Other' ], {}, { :class => 'select' }) %></td>
+        </tr>
         <div class="actions">
           <tr>
             <td><%= f.submit "Sign up" %></td>
@@ -35,3 +56,5 @@
       </tr>
     </table>
 <% end %>
+
+ 

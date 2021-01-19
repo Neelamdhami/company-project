@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   resources :companies
   post '/assign_periods', to: 'employees#assign_projects'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+  #get 'search', to: 'companies#search'
+  get '/search' => 'pages#search', :as => 'search_page'
 
   root 'welcome#index'
+
 end

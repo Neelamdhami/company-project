@@ -4,9 +4,12 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    if params[:search]
+      @companies = Company.search(params[:search]) 
+    else 
+      @companies = Company.all
+    end
   end
-
   # GET /companies/1
   # GET /companies/1.json
   def show

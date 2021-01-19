@@ -19,8 +19,7 @@ class CommentsController < ApplicationController
     end
 
     def destroy
-      @blog = Blog.find(params[:blog_id])
-      @comment = @blog.comments.find(params[:id])
+      @comment= Comment.find(params[:comment_id])
       @comment.destroy
       redirect_back(fallback_location: root_path)
     end

@@ -5,4 +5,13 @@ class Company < ApplicationRecord
 	validates :company_name, presence: true
 	validates_length_of :company_name, minimum: 3
 	mount_uploader :image, ImageUploader
-end
+
+	def self.search(search)
+    if search
+      where(["company_name LIKE ?","%#{search}%"])
+    else
+      all
+    end 
+
+  end
+end 

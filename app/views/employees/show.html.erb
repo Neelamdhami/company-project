@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 <div align="center">
 	<%= @employee.employee_name %><br/>
-	<%= image_tag (@employee.image_url), :size => "260x180" %>
+	<%= image_tag (@employee.image_url), :size => "260x180" %><br/>
+	<%= @employee.dob %><br/>
+	<%= @employee.gender%>
 	<%= form_with url: assign_periods_path do |f| %>
   	<%= f.collection_select :project_id, Project.order(:project_name),:id,:project_name, include_blank: true, class: "form-control" %>
   	<%= f.hidden_field :employee_id, value: @employee.id %>

@@ -23,6 +23,14 @@
       <td><%= form.label :image %></td>
       <td><%= form.file_field :image%></td>
       <tr>
+    <tr>
+      <td><%= form.label :dob %></td>
+      <td><%= form.date_field :dob%></td>
+    </tr>
+    <tr>
+      <td><%= form.label :gender %></td>
+      <td><%= form.select(:gender, [ 'Male', 'Female', 'Other' ], {}, { :class => 'select' }) %></td>
+    </tr>
     <div class="actions">
       <td colspan="2"><button><%= form.submit %></button></td>
     </div>
